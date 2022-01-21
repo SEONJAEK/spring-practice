@@ -1,4 +1,4 @@
-package com.poscoict.emaillist.dao;
+package com.poscoict.emaillist.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
