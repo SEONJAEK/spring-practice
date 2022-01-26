@@ -32,15 +32,26 @@ public class GuestbookController {
 		return "/WEB-INF/views/deleteform.jsp";
 	}
 	
+//	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+//	public String delete(GuestbookVo vo, 
+//			@RequestParam(value="no", required=true, defaultValue = "0") Long n) {
+//		GuestbookVo guestbookVo = new GuestbookVo();
+//		guestbookVo.setNo(n);
+//		
+//		
+//		guestbookRepository.delete(guestbookVo);
+//		
+//		return "redirect:/";
+//	}
+	
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(GuestbookVo vo, 
-			@RequestParam(value="no", required=true, defaultValue = "0") Long n) {
-		GuestbookVo guestbookVo = new GuestbookVo();
-		guestbookVo.setNo(n);
-		guestbookRepository.delete(guestbookVo);
-		
+	public String delete(GuestbookVo vo, Model model) {
+		model.addAttribute("no", vo.getNo());
 		return "redirect:/";
+			
 	}
+	
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(GuestbookVo vo) {

@@ -8,5 +8,6 @@
   	<module>helloweb03</module>
   	<module>emaillist03</module>
   	<module>guestbook03</module>
+  	<module>logex</module>
   </modules>
 </project>
