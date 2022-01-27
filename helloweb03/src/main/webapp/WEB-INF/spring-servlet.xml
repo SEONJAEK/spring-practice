@@ -15,6 +15,10 @@
 			<mvc:mapping path="/board/**"/>
 			<bean class="com.poscoict.helloweb.interceptor.MyInterceptor01"/>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/**"/>
+			<bean class="com.poscoict.helloweb.interceptor.MyInterceptor02"/>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
 	<context:annotation-config />
