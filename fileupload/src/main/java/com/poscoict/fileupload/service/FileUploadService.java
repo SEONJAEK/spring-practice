@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadService {
 	private static String SAVE_PATH="/upload-images";
 	private static String URL_BASE="/images";
+	
 	public String restore(MultipartFile multipartFile) {
 		String url = null;
 		try {
@@ -32,17 +33,19 @@ public class FileUploadService {
 			os.write(data);
 			os.close();
 			
-			url = URL_BASE+"/"+saveFilename;
+			url = URL_BASE + "/" + saveFilename;
 			
 		} catch(IOException ex){
 			throw new RuntimeException("file upload error:" + ex);
 		}
-		return null;
+		return url;
 	}
 	
 		private String generateSaveFilename(String extName) {
 			String filename ="";
+			
 			Calendar calendar = Calendar.getInstance();
+			
 			filename += calendar.get(Calendar.YEAR);
 			filename += calendar.get(Calendar.MONTH);
 			filename += calendar.get(Calendar.DATE);
@@ -50,6 +53,7 @@ public class FileUploadService {
 			filename += calendar.get(Calendar.MINUTE);
 			filename += calendar.get(Calendar.SECOND);
 			filename += calendar.get(Calendar.MILLISECOND);
+			filename += ("."+ extName);
 			
 			return filename;
 		

@@ -11,7 +11,7 @@
 <body>
 	<h1>Upload completed</h1>
 	<div class="result-images">
-		<img src="${pageContext.request.contextPath }/${url }" style="width:150px"><br>
+		<img src="${pageContext.request.contextPath }${url }" style="width:150px"><br>
 	</div>
 
 	<p>
