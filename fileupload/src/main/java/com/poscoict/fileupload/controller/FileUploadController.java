@@ -9,23 +9,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileUploadController {
-	
-	@RequestMapping({"","/form"})
+
+	@RequestMapping({"", "/form"})
 	public String form() {
 		return "form";
 	}
 	
-	@RequestMapping(value="/upload", method = RequestMethod.POST)
+	@RequestMapping(value="/upload", method=RequestMethod.POST)
 	public String upload(
-			@RequestParam(value="email", required=true, defaultValue="")String email,
-			@RequestParam(value="upload-file")MultipartFile multipartFile,
+			@RequestParam(value="email", required=true, defaultValue="") String email, 
+			@RequestParam(value="upload-file") MultipartFile multipartFile,
 			Model model) {
 		
-		System.out.println("email:"+ email);
+		System.out.println("email:" + email);
 		
 		String url = fileUploadService.restore(multipartFile);
 		
-		model.addAttribute(url);
+		model.addAttribute("url", url);
 		return "result";
 	}
 }
