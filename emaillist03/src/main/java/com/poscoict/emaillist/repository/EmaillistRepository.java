@@ -115,10 +115,10 @@ public class EmaillistRepository {
 		Connection conn = null;
 		try {
 			// 1. JDBC 드라이버 로딩
-			Class.forName("com.mysql.cj.jdbc.Driver"); // JDBC드라이버를 로딩//패키지명+ 클래스//드라이버마다 다름
+			Class.forName("org.mariadb.jdbc.Driver"); // JDBC드라이버를 로딩//패키지명+ 클래스//드라이버마다 다름
 
 			// 2. 연결하기
-			String url = "jdbc:mysql://localhost:3306/webdb?characterEncoding=UTF-8&serverTimezone=UTC";
+			String url = "jdbc:mysql://192.168.0.52:3307/webdb?characterEncoding=UTF-8&serverTimezone=UTC";
 			// JDBC URL//Uniform Resource Locator의 약어//주소를 알려주는 단일화된 형식의 문자열
 			// 어떤 디비서버를 어떤 형식으로 접속할지 알려주는 것
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
