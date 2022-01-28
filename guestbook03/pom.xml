@@ -111,7 +111,7 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.1</version>
 				<configuration>
-					<url>http://192.168.0.52:3307/manager/text</url>
+					<url>http://127.0.0.1:8080/manager/text</url>
 					<path>/guestbook03</path>
 					<username>admin</username>
 					<password>manager</password>
