@@ -8,22 +8,22 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.poscoict.container.config.videosystem.DvdPlayerConfig;
-//runner가 container를 만들수있게 해줘야함
+import com.poscoict.container.config.videosystem.DVDPlayerConfig;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-//컨테이너 환경 만들엉줌
-@ContextConfiguration(classes= {DvdPlayerConfig.class})
-public class DvdPlayerJavaConfigTest {
-	
+@ContextConfiguration(classes={DVDPlayerConfig.class})
+public class DVDPlayerJavaConfigTest {
 	@Rule
 	public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 	
 	@Autowired
 	private DigitalVideoDisc dvd;
 	
+	@Qualifier("dvdPlayer04")
 	@Autowired
 	private DVDPlayer dvdPlayer;
 	
@@ -33,13 +33,13 @@ public class DvdPlayerJavaConfigTest {
 	}
 	
 	@Test
-	public void testDVDPlayerNotnull() {
+	public void testDVDPlayerNotNull() {
 		assertNotNull(dvdPlayer);
 	}
 	
 	@Test
 	public void testPlay() {
 		dvdPlayer.play();
-		assertEquals("Playing Movie MARVEL's Avengers",  systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+		assertEquals("Playing Movie MARVEL's Avengers", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 }
